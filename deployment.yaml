@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odyssey-develop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: odyssey-develop
+  template:
+    metadata:
+      labels:
+        app: odyssey-develop
+    spec:
+      containers:
+        - name: odyssey-develop
+          image: imrishav/gitops01:604ac3b39a717bbceb7e0386debaed67fd7857bb
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
